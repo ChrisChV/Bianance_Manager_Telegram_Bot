@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/usr/bin/../lib/google-cloud-sdk/lib/gcloud.py", line 95, in <module>
+    main()
+  File "/usr/bin/../lib/google-cloud-sdk/lib/gcloud.py", line 67, in main
+    gcloud_main = _import_gcloud_main()
+  File "/usr/bin/../lib/google-cloud-sdk/lib/gcloud.py", line 48, in _import_gcloud_main
+    import googlecloudsdk.gcloud_main
+  File "/usr/lib/google-cloud-sdk/lib/googlecloudsdk/gcloud_main.py", line 34, in <module>
+    from googlecloudsdk.calliope import base
+  File "/usr/lib/google-cloud-sdk/lib/googlecloudsdk/calliope/base.py", line 30, in <module>
+    from googlecloudsdk.calliope import arg_parsers
+  File "/usr/lib/google-cloud-sdk/lib/googlecloudsdk/calliope/arg_parsers.py", line 60, in <module>
+    from googlecloudsdk.core import log
+  File "/usr/lib/google-cloud-sdk/lib/googlecloudsdk/core/log.py", line 35, in <module>
+    from googlecloudsdk.core.console.style import parser as style_parser
+  File "/usr/lib/google-cloud-sdk/lib/googlecloudsdk/core/console/style/parser.py", line 22, in <module>
+    from googlecloudsdk.core.console.style import mappings
+  File "/usr/lib/google-cloud-sdk/lib/googlecloudsdk/core/console/style/mappings.py", line 15, in <module>
+    """Mappings from TextTypes to TextAttributes used by the TextTypeParser."""
+KeyboardInterrupt
