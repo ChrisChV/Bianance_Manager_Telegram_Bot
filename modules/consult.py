@@ -10,6 +10,8 @@ def getOpens(message):
     data[sad._JSON_OPERATION_TYPE_] = sad._GET_OPEN_OPERATION_TYPE_
     res_data = bm_client.sendData(data)
     res_data  = json.loads(res_data)
+    if not res_data:
+        return "There isn't open transactions"
     return generateMessage(res_data)
 
 def generateMessage(res_data):
@@ -21,12 +23,12 @@ def generateMessage(res_data):
         message += "\tState: " + data[sad._JSON_STATE_] + '\n'
         message += "\tQuantity: " + str(data[sad._JSON_QUANTITY_]) + '\n'
         message += "\tEntry Order:" + '\n'
-        message += "\t\tPrice: " + data[sad._JSON_ENTRY_] + '\n'
+        message += "\t\tPrice: " + str(data[sad._JSON_ENTRY_]) + '\n'
         message += "\t\tState: " + data[sad._JSON_ENTRY_STATE_] + '\n'
         message += "\tLose Order:" + '\n'
-        message += "\t\tPrice: " + data[sad._JSON_LOSE_] + '\n'
+        message += "\t\tPrice: " + str(data[sad._JSON_LOSE_]) + '\n'
         message += "\t\tState: " + data[sad._JSON_LOSE_STATE_] + '\n'
         message += "\tProfit Order:" + '\n'
-        message += "\t\tPrice: " + data[sad._JSON_PROFIT_] + '\n'
+        message += "\t\tPrice: " + str(data[sad._JSON_PROFIT_]) + '\n'
         message += "\t\tState: " + data[sad._JSON_PROFIT_STATE_] + '\n'
     return message

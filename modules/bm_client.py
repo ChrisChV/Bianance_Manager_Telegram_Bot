@@ -4,7 +4,7 @@ import json
 def sendData(data):
     HOST = "localhost"
     PORT = 65432
-
+    print(data)
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((HOST, PORT))
     s.sendall(json.dumps(data))

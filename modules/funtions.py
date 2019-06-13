@@ -7,6 +7,7 @@ import bm_client
 @Command(description="Creates a new Transaction with simple function")
 def simple(message):
     args = message.split()
+    print(message)
     return generateData(args, sad._FUNCTION_SIMPLE_)
 
 @RaveGen

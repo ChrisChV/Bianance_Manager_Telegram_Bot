@@ -1,0 +1,12 @@
+[RaveGen]
+hosting = gae
+token = 785072582:AAEV8CLcSI3S7j4x7ImaXUEuoC8ldE_8LgI
+token_test = 785072582:AAEV8CLcSI3S7j4x7ImaXUEuoC8ldE_8LgI
+deploy_url = 
+deploy_port = __PORT__
+webhook_path = 
+verbose = yes
+log = yes
+
+[gae]
+project_name =
