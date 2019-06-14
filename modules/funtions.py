@@ -2,12 +2,10 @@ from ravegen import *
 import sad
 import bm_client
 
-
 @RaveGen
 @Command(description="Creates a new Transaction with simple function")
 def simple(message):
     args = message.split()
-    print(message)
     return generateData(args, sad._FUNCTION_SIMPLE_)
 
 @RaveGen
@@ -21,7 +19,6 @@ def half(message):
 def infinitep(message):
     args = message.split()
     return generateData(args, sad._FUNCTION_INFINITE_P_)
-
 
 def generateData(args, function):
     if len(args) < 5:
@@ -37,5 +34,3 @@ def generateData(args, function):
     data[sad._JSON_QUANTITY_] = float(args[4])
     data[sad._JSON_FUNCTION_] = function
     return bm_client.sendData(data)
-
-
