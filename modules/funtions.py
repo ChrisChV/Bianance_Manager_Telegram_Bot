@@ -2,23 +2,35 @@ from ravegen import *
 import sad
 import bm_client
 
-@RaveGen
-@Command(description="Creates a new Transaction with simple function")
-def simple(message):
-    args = message.split()
-    return generateData(args, sad._FUNCTION_SIMPLE_)
+@Command(description="Creates a new Transaction with simple function", passArgs=True)
+def simple(bot, update, args):
+    #args = message.split()
+    if not bm_client.verifyAdmin(update):
+        update.effective_message.reply_text("You don't have permissions")
+        return
+    message = generateData(args, sad._FUNCTION_SIMPLE_)
+    update.effective_message.reply_text(message)
+    #return generateData(args, sad._FUNCTION_SIMPLE_)
 
-@RaveGen
-@Command(description="Creates a new Transaction with half function")
-def half(message):
-    args = message.split()
-    return generateData(args, sad._FUNCTION_HALF_)
+@Command(description="Creates a new Transaction with half function", passArgs=True)
+def half(bot, update, args):
+    #args = message.split()
+    if not bm_client.verifyAdmin(update):
+        update.effective_message.reply_text("You don't have permissions")
+        return
+    message = generateData(args, sad._FUNCTION_HALF_)
+    update.effective_message.reply_text(message)
+    #return generateData(args, sad._FUNCTION_HALF_)
 
-@RaveGen
-@Command(description="Creates a new Transaction with infiniteP function")
-def infinitep(message):
-    args = message.split()
-    return generateData(args, sad._FUNCTION_INFINITE_P_)
+@Command(description="Creates a new Transaction with infiniteP function", passArgs=True)
+def infinitep(bot, update, args):
+    #args = message.split()
+    if not bm_client.verifyAdmin(update):
+        update.effective_message.reply_text("You don't have permissions")
+        return
+    message = generateData(args, sad._FUNCTION_INFINITE_P_)
+    update.effective_message.reply_text(message)
+    #return generateData(args, sad._FUNCTION_INFINITE_P_)
 
 def generateData(args, function):
     if len(args) < 5:

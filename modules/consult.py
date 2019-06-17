@@ -3,16 +3,20 @@ import modules.sad as sad
 import bm_client
 import json
 
-@RaveGen
 @Command(description="Get info for all open transactions")
-def getOpens(message):
+def getOpens(bot, update):
+    if not bm_client.verifyAdmin(update):
+        update.effective_message.reply_text("You don't have permissions")
+        return
     data = {}
     data[sad._JSON_OPERATION_TYPE_] = sad._GET_OPEN_OPERATION_TYPE_
     res_data = bm_client.sendData(data)
     res_data  = json.loads(res_data)
     if not res_data:
         return "There isn't open transactions"
-    return generateMessage(res_data)
+    message = generateMessage(res_data)
+    update.effective_message.reply_text(message)
+    #return generateMessage(res_data)
 
 def generateMessage(res_data):
     message = ""

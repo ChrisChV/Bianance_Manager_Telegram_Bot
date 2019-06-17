@@ -1,6 +1,8 @@
 import socket
 import json
 
+ADMIN = 111111
+
 def sendData(data):
     HOST = "localhost"
     PORT = 65432
@@ -10,3 +12,9 @@ def sendData(data):
     msg = s.recv(1024)
     s.close()
     return msg
+
+def verifyAdmin(update):
+    id = update.effective_message.from_user.id
+    return id == ADMIN
+
+

@@ -2,17 +2,25 @@ from ravegen import *
 import sad
 import bm_client
 
-@RaveGen
-@Command(description="Cancel Transaction")
-def cancel(message):
-    args = message.split()
-    return generateData(args, sad._CANCEL_OPERATION_TYPE_)
+@Command(description="Cancel Transaction", passArgs=True)
+def cancel(bot, update, args):
+    #args = message.split()
+    if not bm_client.verifyAdmin(update):
+        update.effective_message.reply_text("You don't have permissions")
+        return
+    message = generateData(args, sad._CANCEL_OPERATION_TYPE_)
+    update.effective_message.reply_text(message)
+    #return generateData(args, sad._CANCEL_OPERATION_TYPE_)
 
-@RaveGen
-@Command(description="Disable Transaction")
-def disable(message):
-    args = message.split()
-    return generateData(args, sad._DISABLE_OPERATION_TYPE_)
+@Command(description="Disable Transaction", passArgs=True)
+def disable(bot, update, args):
+    #args = message.split()
+    if not bm_client.verifyAdmin(update):
+        update.effective_message.reply_text("You don't have permissions")
+        return
+    message = generateData(args, sad._DISABLE_OPERATION_TYPE_)
+    update.effective_message.reply_text(message)
+    #return generateData(args, sad._DISABLE_OPERATION_TYPE_)
 
 def generateData(args, oper_type):
     if len(args) < 1:
