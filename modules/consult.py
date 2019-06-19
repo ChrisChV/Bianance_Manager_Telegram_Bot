@@ -4,7 +4,7 @@ import bm_client
 import json
 
 @Command(description="Get info for all open transactions")
-def getOpens(bot, update):
+def getopens(bot, update):
     if not bm_client.verifyAdmin(update):
         update.effective_message.reply_text("You don't have permissions")
         return
@@ -13,7 +13,9 @@ def getOpens(bot, update):
     res_data = bm_client.sendData(data)
     res_data  = json.loads(res_data)
     if not res_data:
-        return "There isn't open transactions"
+        update.effective_message.reply_text("There isn't open transactions")
+        return
+        #return "There isn't open transactions"
     message = generateMessage(res_data)
     update.effective_message.reply_text(message)
     #return generateMessage(res_data)
